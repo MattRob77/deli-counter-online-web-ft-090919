@@ -1,31 +1,32 @@
-var katzDeliLine = []; 
-function takeANumber (katzDeliLine, name){
-  var position = katzDeliLine.length+1;
-   katzDeliLine.push(name);
-return "Welcome, " + name +". You are number "+ position +" in line.";
-} 
-end 
+katz_deli = []
 
+def line(katz_deli)
+    if katz_deli.empty?
+        puts "The line is currently empty."
+    else
+        line_status = "The line is currently:"
+        katz_deli.each_with_index { |name, index| 
+            line_status << " #{index+1}. #{name}"
+        }
+        puts line_status
+    end
 
+end
 
-function nowServing (deliLine){
-var customer;
-if(deliLine.length === 0){
-  return "There is nobody waiting to be served!"
-}
-customer = deliLine.shift()
-return "Currently serving "+ customer + "."
-}
+def take_a_number(katz_deli, name)
+    if katz_deli.empty?
+        katz_deli.push(name)
+        puts "Welcome, #{name}. You are number #{katz_deli.size} in line."
+    else
+        katz_deli.push(name)
+        puts "Welcome, #{name}. You are number #{katz_deli.size} in line."
+    end
+end
 
-
-
-function currentLine(katzDeliLine){
-  var message = "The line is currently:" 
-  if(katzDeliLine.length ===0) {
-    return "The line is currently empty.";
-  } else 
-   for ( var i = 0; i < katzDeliLine.length; i++) { 
-     message += " " + (i + 1) + ". " + katzDeliLine[i] + "," 
-   } 
-   return message.slice(0, message.length - 1) 
-} 
+def now_serving(katz_deli)
+    if katz_deli.empty?
+        puts "There is nobody waiting to be served!"
+    else
+        puts "Currently serving #{katz_deli.shift}."
+    end
+end
